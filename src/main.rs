@@ -234,8 +234,10 @@ fn mate(a: &Chromosome, b: &Chromosome) -> (Chromosome, Chromosome) {
 
 // Randomly mutate a Chromosome
 fn mutate(odds: f64, code: String) -> (String, bool) {
+    // Check if the mutation should occur
     if rand::thread_rng().gen_range(0.0..1.0) < odds {
         let index = rand::thread_rng().gen_range(0..code.len());
+        // Randomly select codepoint direction to mutate
         let direction = if rand::thread_rng().gen_range(0.0..1.0) > 0.5 {
             1
         } else {

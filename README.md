@@ -20,7 +20,7 @@ $ ./stringgen "Alain LIORET" 70 10
 
 # Building
 
-Prebuilt binaries are available for Linux and Windows in the releases.
+Prebuilt binaries are available for Linux, macOS and Windows in the `bin` folder.
 
 Install the [Rust toolchain](https://www.rust-lang.org/tools/install).
 

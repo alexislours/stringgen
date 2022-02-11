@@ -1,0 +1,27 @@
+image: "sseemayer/rust-musl-builder-mingw:latest"
+
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  script:
+  - rustc --version && cargo --version
+  - cargo test --all --verbose
+
+linux-musl:
+  stage: build
+  artifacts:
+    paths:
+      - target/x86_64-unknown-linux-musl/release/stringgen
+  script:
+    - cargo build --release --target x86_64-unknown-linux-musl
+
+windows-mingw:
+  stage: build
+  artifacts:
+    paths:
+      - target/x86_64-pc-windows-gnu/release/stringgen.exe
+  script:
+    - cargo build --release --target x86_64-pc-windows-gnu
